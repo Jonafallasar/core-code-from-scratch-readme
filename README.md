@@ -32,8 +32,6 @@ Es un hibrido  por lo que es posible ser ejecutado por un hardware CPU.un progra
   5. PRINT Total
   
   
-  9. END
-  
   4. Aprende sobre lenguajes de alto y bajo nivel
   Lenguaje de bajo nivel
   Es un lenguaje de programación que proporciona poca  o ninguna abstracción de los conceptos de programación y esta muy cerca del hardware .
@@ -112,3 +110,54 @@ Es un hibrido  por lo que es posible ser ejecutado por un hardware CPU.un progra
   
   
   
+Week challenges (Thursday)
+  
+  In this exercise you must use an iterative flow control to be able to print all the even numbers in the range of numbers from 0 to 100. Remember that you should not print each number, you should use a flow control structure to perform the exercise
+  
+  For
+While
+do While
+Even number
+Reminder Operator
+
+For
+for (var i = 0; i <= 100; i++) {
+  if (i % 2 == 0) console.log(i);
+}
+
+While
+var i = 0;
+while (i <= 100) {
+  if (i % 2 == 0) console.log(i);
+  i++;
+}
+
+do While
+var i = 0;
+do {
+  if(i % 2 == 0)console.log(i);
+  i++
+} w
+  
+  Bad code
+  
+  var cond = false;
+
+if (cond) {
+  console.log('The cond variable is true');
+} else {
+  console.log('The cond variable is false');
+}
+
+Bad code 2
+
+var n = 100;
+
+if (n == 100) {
+  console.log('This is a special number!');
+} else if (n < 1000 && n % 10 == 0) {
+  console.log('This number is almost special');
+} else {
+  console.log('Just a regular number');
+  }
+  9. END
