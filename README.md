@@ -54,55 +54,63 @@ Es un hibrido  por lo que es posible ser ejecutado por un hardware CPU.un progra
         result: .asciiz "\nThe result is: "
         number_one_msg: .asciiz "\nEnter the first number: "
         number_two_msg: .asciiz "\nEnter the second number: "
-  .text
-        main:
-              # welcome message
-              li $v0, 4
-              la $a0, welcome
-              syscall
-
-              # user input
-              li $v0, 4
-              la $a0, number_one_msg
-              syscall
-
-              li $v0, 5
-              syscall
-
-              # saving user input
-              move $t0, $v0
-
-              # user input
-              li $v0, 4
-              la $a0, number_two_msg
-              syscall
-
-              li $v0, 5
-              syscall
-
-              # saving user input
-              move $t1, $v0
-
-              # adding the user numbers
-              add $t2, $t0, $t1
-
-              # showing result number
-              li $v0, 4
-              la $a0, result
-              syscall
-
-              # printing number
-              li $v0, 1
-              move $a0, $t2
-              syscall
+	
+  ```assembly
+.data
+    n1: .asciiz "enter your first number: "
+    n2: .asciiz "enter your second number: "
+    result: .asciiz "result is "
+.text
+    #getting first input.
+    la $a0, n1
+    li $v0, 4
+    syscall
+    li $v0, 5
+    syscall
+    move $t0, $v0
+    #getting second input.
+    la $a0, n2
+    li $v0, 4
+    syscall
+    li $v0, 5
+    syscall
+    move $t1, $v0
+    #calculate and print out the result.
+    la $a0, result
+    li $v0, 4
+    syscall
+    add $t3, $t0, $t1
+    move $a0, $t3
+    li $v0, 1
+    syscall
+    #end program.
+    li $v0, 10
+    syscall
               
               
       .data
-	      my_name: .asciiz "\nJona\n"
+	      message: .asciiz "\nHello what your name? "
+	      message2: .asciiz "\n Nice to meet you "
+	      userImput: .space 20
   .text
 	      main:
               li $v0, 4
-              la $a0, my_name
+              la $a0 message
+              syscall
+	      # Getting user's input as text
+	      li $v0, 8
+              la $a0, userImput
+              li $a1, 20
+              syscall
+              #Display Nice to meet you
+              li $v0, 4
+              la $a0 message2
+              syscall
+              #Display the name
+              li $v0, 4
+              la $a0 userImput
+              syscall
+              li $v0, 10
               syscall
               
   
