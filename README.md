@@ -169,3 +169,80 @@ if (n == 100) {
   console.log('Just a regular number');
   }
   9. END
+		   
+		   
+		   
+# Week challenges (Monday) 
+		   
+Read about: if...else
+
+The if statement executes a statement if a specified condition is truthy
+Syntax
+if (condition)
+  statement1
+
+// With an else clause
+if (condition)
+  statement1
+else
+  statement2		   
+		   
+Read about: for
+		   
+The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement (usually a block statement) to be executed in the loop.															
+Syntax
+for ([initialization]; [condition]; [final-expression])
+  statement		   
+let str = '';
+
+for (let i = 0; i < 9; i++) {
+  str = str + i;
+}
+
+console.log(str);
+// expected output: "012345678"
+	
+initialization
+An expression (including assignment expressions) or variable declaration evaluated once before the loop begins. Typically used to initialize a counter variable. This expression may optionally declare new variables with var or let keywords
+
+condition
+An expression to be evaluated before each loop iteration. If this expression evaluates to true, statement is executed. If the expression evaluates to false
+	
+statement
+A statement that is executed as long as the condition evaluates to true. To execute multiple statements within the loop, use a block statement ({ /* ... */ }) to group those statements.
+	
+
+Read about: while
+	
+The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.
+
+Try it
+	
+		   
+let n = 0;
+
+while (n < 3) {
+  n++;
+}
+
+console.log(n);
+// expected output: 3		   
+		   	
+Syntax
+	     
+while (condition)
+  statement
+	     
+condition
+An expression evaluated before each pass through the loop. If this condition evaluates to true, statement is executed. When condition evaluates to false, execution continues with the statement after the while loop.
+	     
+statement
+An optional statement that is executed as long as the condition evaluates to true. To execute multiple statements within the loop, use a block statement ({ /* ... */ }) to group those statements.	     
+	     
+	     
+	     
+	     
+		   
+		   
+		   
+		   
