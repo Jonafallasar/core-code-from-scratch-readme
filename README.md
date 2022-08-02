@@ -242,7 +242,193 @@ An optional statement that is executed as long as the condition evaluates to tru
 	     
 	     
 	     
+## Week challenges (Tuesday)
+	Multiply
+How to use Codewars
+	     
+Solution 😎
+
+function multiply(a, b) {
+  let c = a * b;
+  return c;
+}
+What? 🔮
+
+function multiply(a, b) {
+  return a * b;
+}
+	     
+ASCII Total	     
+	     
+function uniTotal(str) {
+  let total = 0;
+  for (let i = 0, length = str.length; i < length; i++) {
+    total += str[i].charCodeAt();
+  }
+  return total;
+}
+What? 🔮
+
+function uniTotal(string) {
+  return Array.from(string).reduce(
+    (result, char) => result + char.charCodeAt(0),
+    0
+  );
+}		   
 		   
 		   
-		   
-		   
+## Week challenges (Wednesday
+
+Char From ASCII Value	
+	
+function getChar(c) {
+  return String.fromCharCode(c);
+}
+	
+What? 🔮
+
+const getChar = String.fromCharCode;
+
+Binary Addition
+	
+Solution 
+
+function addBinary(a, b) {
+  return (a + b).toString(2);
+}	
+	
+Student's Final Grade
+	
+function finalGrade(exam, projects) {
+  let result = 0;
+  if (exam > 90 || projects > 10) {
+    result = 100;
+  } else if (exam > 75 && projects >= 5) {
+    result = 90;
+  } else if (exam > 50 && projects >= 2) {
+    result = 75;
+  }
+  return result;
+}
+	
+What?
+	
+function finalGrade(exam, projects) {
+  if (exam > 90 || projects > 10) return 100;
+  if (exam > 75 && projects >= 5) return 90;
+  if (exam > 50 && projects >= 2) return 75;
+  return 0;
+}	
+	
+
+## Week challenges (Thursday)
+	
+Remove All Exclamation Marks From The End Of Sentence
+	
+Solution 😎
+
+function remove(string) {
+  let result = '';
+  let lastValidStringPosition = string.length - 1;
+  // checking the string from the end to the begining
+  for (let i = lastValidStringPosition; i > 0; i--) {
+    /* 
+      if we are checking the string backwards and we find a character different from '!',
+      we should take the remaining characters as our answer, because we have skip the '!' 
+      characters that are at the end of the string
+    */
+    if (string[i] !== '!') {
+      result = string.substring(0, i + 1); // saving the remaining characters
+      break; // we should stop the search
+    }
+  }
+  return result;
+}
+What? 
+
+function remove(string) {
+  return string.replace(/!+$/, '');
+}	
+	
+Vowel Remover
+	
+function shortcut(string) {
+  let result = '';
+  for (let i = 0; i < string.length; i++) {
+    if (
+      string[i] == 'a' ||
+      string[i] == 'e' ||
+      string[i] == 'i' ||
+      string[i] == 'o' ||
+      string[i] == 'u'
+    ) {
+      continue;
+    }
+    result = result + string[i];
+  }
+  return result;
+}
+What? 🔮
+
+function shortcut(string) {
+  return string.replace(/[aeiou]/g, '');
+}
+				    
+Rock Paper Scissors!
+				    
+Solution 😎
+
+const rps = (p1, p2) => {
+  if (p1 === p2) return 'Draw!';
+  if (p1 === 'rock' && p2 === 'scissors') return 'Player 1 won!';
+  if (p1 === 'scissors' && p2 === 'paper') return 'Player 1 won!';
+  if (p1 === 'paper' && p2 === 'rock') return 'Player 1 won!';
+  return 'Player 2 won!';
+};
+What? 
+
+const rps = (p1, p2) => {
+  let rules = { rock: 'scissors', paper: 'rock', scissors: 'paper' };
+  if (p1 === p2) return 'Draw!';
+  if (p2 === rules[p1]) {
+    return 'Player 1 won!';
+  }
+  return 'Player 2 won!';
+};				    
+				    
+	
+Persistent Bugger
+	
+Solution 😎
+
+function persistence(num) {
+  let times = 0;
+  let digits = [];
+  while (num >= 10) {
+    digits = num.toString().split('');
+    num = 1;
+    for (let i = 0; i < digits.length; i++) {
+      num *= digits[i];
+    }
+    times++;
+  }
+  return times;
+}
+What? 
+
+function persistence(num) {
+  let times = 0;
+  num = num.toString();
+  while (num.length > 1) {
+    times++;
+    num = num
+      .split('')
+      .map((a) => Number(a))
+      .reduce((a, b) => a * b)
+      .toString();
+  }
+  return times;
+}
+	
+	
+	
