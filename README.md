@@ -429,6 +429,186 @@ function persistence(num) {
   }
   return times;
 }
+
+	
+	
+Week challenges (Monday)
+	
+Who Likes It?
+	
+	
+	function likes(names) {
+  if (names.length == 0) return 'no one likes this';
+  if (names.length == 1) return `${names[0]} likes this`;
+  if (names.length == 2) return `${names[0]} and ${names[1]} like this`;
+  if (names.length == 3)
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+}
+	
+
+Bit Counting
+	
+var countBits = function (n) {
+  return n
+    .toString(2)
+    .split('')
+    .reduce((total, val) => total + Number(val), 0);
+};
+	
+Your order, please
+	
+function order(words) {
+  let wordsArray = words.split(' ');
+  wordsArray = wordsArray.sort(
+    (w1, w2) => Number(w1.replace(/\D/g, '')) - Number(w2.replace(/\D/g, ''))
+  );
+  return wordsArray.join(' ');
+}
+	
+	
+Week challenges (Tuesday) 
+Simple Pig Latin
+	
+solucion
+	
+function pigIt(str) {
+  return str.replace(/(\w)(\w*)(\s|$)/g, '$2$1ay$3');
+
+}	
+
+	
+
+	
+
+Counting Duplicates
+
+function duplicateCount(text) {
+  let textArray = text.toLowerCase().split('').sort();
+  let i = 0,
+    result = 0,
+    lastIndexOfChar = 0;
+  while (textArray.length) {
+    lastIndexOfChar = textArray.lastIndexOf(textArray[i]);
+    if (lastIndexOfChar !== i) {
+      i = lastIndexOfChar;
+      result++;
+    }
+    textArray = textArray.slice(++i);
+    i = 0;
+  }
+  return result;
+}
+	
+	
+Decode The Morse Code
+	
+decodeMorse = function (morseCode) {
+  morseCode = morseCode.replace(/   /g, '#');
+  let decodedCode = '';
+  let tempWordToDecode = '';
+  for (let i = 0, lenght = morseCode.length; i < lenght; i++) {
+    if (morseCode[i] === ' ') {
+      decodedCode += MORSE_CODE[tempWordToDecode] || '';
+      tempWordToDecode = '';
+    } else if (morseCode[i] === '#') {
+      decodedCode += `${MORSE_CODE[tempWordToDecode] || ''} `;
+      tempWordToDecode = '';
+    } else {
+      tempWordToDecode += morseCode[i];
+    }
+  }
+  decodedCode += MORSE_CODE[tempWordToDecode] || '';
+  return decodedCode.trim();
+};	
 	
 	
 	
+Week challenges (Wednesday)
+							
+Valid Parentheses
+							
+Solution 
+
+function validParentheses(parens) {
+  let valid = 0;
+  for (let i = 0; i < parens.length; i++) {
+    if (parens[i] === ')') valid--;
+    if (parens[i] === '(') valid++;
+    if (valid < 0) return false;
+  }
+  return valid == 0;
+}							
+	
+
+Convert String To Camel Case
+		  
+function toCamelCase(str) {
+  return str
+    .replace(/-/g, '_')
+    .split('_')
+    .map((word, i) => (i > 0 ? word.toUpperCase()[0] + word.substr(1) : word))
+    .join('');
+}
+cv;
+	
+	
+Unique In Order
+	
+function uniqueInOrder(iterable) {
+  let result = [];
+  let last;
+  for (let i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== last) {
+      last = iterable[i];
+      result.push(last);
+    }
+  }
+  return result;
+}
+				      
+Week challenges (Thursday)
+				      
+				      
+Fold An Array
+				      
+function foldArray(array, runs) {
+  if (array.length === 1) return array;
+  let output = [...array];
+  let aheadPosition = 0;
+  while (runs) {
+    if (output.length === 1) return output;
+    output = Array.from(
+      { length: Math.round(output.length / 2) },
+      (v) => 0
+    ).map((v, i) => {
+      aheadPosition = output.length - (i + 1);
+      if (aheadPosition === i) return output[i];
+      return output[i] + output[aheadPosition];
+    });
+    runs--;
+  }
+  return output;
+}
+	
+	
+Encrypt This!
+	
+const encryptThis = (text) =>
+  text
+    .split(' ')
+    .map((word) =>
+      word
+        .replace(/(^\w)(\w)(\w*)(\w$)/, `$1$4$3$2`)
+        .replace(/^\w/, word.charCodeAt(0))
+    )
+    .join(' ');
+	
+	
+	
+	
+				     
+				      
+				
+		  
+		  
